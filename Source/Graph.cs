@@ -176,12 +176,12 @@ public class Node {
 	private static bool  showBorders				= false;					// show the rectangles around the components
 	
 	private static int   defaultComponentArcSize	= 16;
-	private static int   defaultComponentGapWidth  	= 32;
-	private static int   defaultComponentGapHeight 	= 10;
-	private static Font  defaultCharFont			= new Font("Times",12);
-	private static int   defaultArrowSize			= 3;
-	private static Pen   defaultLinePen				= new Pen(Color.Black,1);
-	private static int   defaultSymbolGapHeight 	= 0;
+	private static int   defaultComponentGapWidth  	= 48;
+	private static int   defaultComponentGapHeight 	= 32;
+	private static Font  defaultCharFont			= new Font("Times", 14, FontStyle.Bold);
+	private static int   defaultArrowSize			= 5;
+	private static Pen   defaultLinePen				= new Pen(Color.Black, 3);
+	private static int   defaultSymbolGapHeight 	= 10;
 	private static Color defaultCharColor			= Color.Black;
 	
 	/**********initialize variables with default settings***********/
@@ -644,7 +644,7 @@ public class Node {
 				StringFormat drawFormat  = new StringFormat();
 				drawFormat.Alignment 	 = StringAlignment.Center;
 				drawFormat.LineAlignment = StringAlignment.Center;
-				g.DrawString(n.sym.name , charFont , new SolidBrush(charColor) , new Rectangle((int)p.X,(int)n.posBegin.Y,n.size.Width,n.size.Height-componentGapHeight-2),drawFormat);
+				g.DrawString(n.sym.name , charFont , new SolidBrush(n.typ == Node.nt ? Color.Blue : charColor) , new Rectangle((int)p.X,(int)n.posBegin.Y,n.size.Width,n.size.Height-componentGapHeight-2),drawFormat);
 				drawArrow(linePen , p.X , n.posLine.Y , p.X , n.posLine.Y , "right");
 				p.X+=n.size.Width;
 				// draw lines between t and nt nodes
@@ -842,7 +842,7 @@ public class Node {
 				StringFormat drawFormat  = new StringFormat();
 				drawFormat.Alignment 	 = StringAlignment.Center;
 				drawFormat.LineAlignment = StringAlignment.Center;
-				g.DrawString(n.sym.name , charFont , new SolidBrush(charColor) , new Rectangle((int)p.X,(int)n.posBegin.Y,n.size.Width,n.size.Height-componentGapHeight-2),drawFormat);
+				g.DrawString(n.sym.name , charFont , new SolidBrush(n.typ == Node.nt ? Color.Blue : charColor) , new Rectangle((int)p.X,(int)n.posBegin.Y,n.size.Width,n.size.Height-componentGapHeight-2),drawFormat);
 				drawArrow(linePen , p.X+n.size.Width , n.posLine.Y , p.X+n.size.Width , n.posLine.Y , "left");
 				
 				if(!n.up && n.next!=null && (n.next.typ==Node.t || n.next.typ==Node.nt)) {
