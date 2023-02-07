@@ -178,7 +178,7 @@ public class Node {
 	private static int   defaultComponentArcSize	= 16;
 	private static int   defaultComponentGapWidth  	= 48;
 	private static int   defaultComponentGapHeight 	= 32;
-	private static Font  defaultCharFont			= new Font("Times", 14, FontStyle.Bold);
+	private static Font  defaultCharFont			= new Font("Times", 16, FontStyle.Bold);
 	private static int   defaultArrowSize			= 5;
 	private static Pen   defaultLinePen				= new Pen(Color.Black, 3);
 	private static int   defaultSymbolGapHeight 	= 10;
@@ -571,7 +571,7 @@ public class Node {
 			}
 			else g=EbnfForm.BitmapGraphics;
 			PointF p=new PointF(beginningXCoordinate,beginningYCoordinate-30);
-			g.DrawString(s.name,new Font("Times New Roman",14),new SolidBrush(Color.Black),p.X-20,p.Y);
+			g.DrawString(s.name,new Font("Times New Roman",16),new SolidBrush(Color.Black),p.X-20,p.Y);
 			//g.DrawRectangle(new Pen(Color.Orange,2),p.X,p.Y+30,s.graph.graphSize.Width,s.graph.graphSize.Height);
 			g.DrawLine(linePen ,beginningXCoordinate-componentGapWidth/4-componentArcSize/2 	, s.graph.l.posLine.Y 	, beginningXCoordinate	, s.graph.l.posLine.Y	);
 			s.graph.l.drawComponents(p,s.graph.graphSize);
